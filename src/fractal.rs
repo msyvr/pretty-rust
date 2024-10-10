@@ -1,12 +1,11 @@
 pub fn fractal() {
-    println!("\nlet's make a jula fractal and save to static/fractal.png\n");
+    println!("\nlet's make a julia set fractal and save to static/fractal.png\n");
 
-    // Generate a julia fractal.
     let columns = 1500;
     let rows = 1500;
 
-    let k_cols = 3.0 / columns as f32;
-    let k_rows = 3.0 / rows as f32;
+    let k_cols = 10.0 / columns as f32;
+    let k_rows = 10.0 / rows as f32;
 
     let mut buffer = image::ImageBuffer::new(columns, rows);
 
@@ -20,8 +19,8 @@ pub fn fractal() {
 
     for x in 0..columns {
         for y in 0..rows {
-            let cx = y as f32 * k_cols - 1.5;
-            let cy = x as f32 * k_rows - 1.5;
+            let cx = y as f32 * k_cols;
+            let cy = x as f32 * k_rows;
 
             let c = num_complex::Complex::new(-0.4, 0.6);
             let mut z = num_complex::Complex::new(cx, cy);
